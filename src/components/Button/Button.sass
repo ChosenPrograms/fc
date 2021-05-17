@@ -1,3 +1,68 @@
+
 .btn
     display: inline-block
-    color: $base-blue
+    color: $text
+    background-color: $gray-00
+    padding: unit(5) unit(16)
+    border-radius: unit(4)
+    font-family: inherit
+    font-weight: 500
+    font-size: unit(14)
+    border: 1px solid $gray-20
+    cursor: pointer
+    white-space: nowrap
+    appearance: none
+    user-select: none
+    vertical-align: middle
+    transition: .2s cubic-bezier(.3,0,.5,1)
+    transition-property: color,background-color,border-color
+    @include better-outline
+
+    &:hover
+        background-color: $gray-10
+
+    &-primary
+        color: $white
+        background-color: $blue
+        border-color: $blue
+
+        &:hover
+            background-color: darken($blue, 5%)
+
+        &:active
+            background-color: darken($blue, 8%)
+        
+    &-success
+        color: $white
+        background-color: $green
+        border-color: $green
+        outline-color: $green
+
+        &:hover
+            background-color: darken($green, 5%)
+
+        &:active
+            background-color: darken($green, 8%)
+
+    &-danger
+        color: $cherry
+        border-color: $gray-20
+        background-color: $gray-00
+        font-family: var(--bootstrap-font)
+        outline-color: $cherry
+
+        &:hover
+            color: $white
+            border-color: $cherry
+            background-color: darken($cherry, 5%)
+
+        &:active
+            color: $white
+            border-color: $cherry
+            background-color: darken($cherry, 8%)
+
+    &-sm
+        font-size: unit(14)
+        border-radius: unit(6)
+        padding: unit(4) unit(8)
+        font-family: var(--bootstrap-font)

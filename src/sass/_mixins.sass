@@ -17,3 +17,11 @@
 @mixin xm
     @media screen and ( max-width: $device-xm+px )
         @content
+
+@mixin breakpoint ( $width )
+    @media screen and ( max-width: $width+px )
+        @content
+
+@mixin better-outline
+    outline-offset: 3px
+    outline-color: $black

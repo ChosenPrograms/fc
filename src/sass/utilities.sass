@@ -1,12 +1,18 @@
 .container
-    max-width: ($device-lg - 50)+px
+    max-width: ($device-lg - 150)+px // 1150px
     margin-left: auto
     margin-right: auto
 
-.box
-    border: 1px solid #eee
-    padding: 2rem
-    background-color: #fff
-    font-size: 52px
-    font-weight: 100
-    text-align: center
+@include breakpoint (1200)
+    .container
+        padding: 0 2rem
+
+@include breakpoint (768)
+    .container
+        padding: 0 .5rem
+
+.rounded
+    border-radius: 99rem
+
+.rounded-square
+    border-radius: 50%
