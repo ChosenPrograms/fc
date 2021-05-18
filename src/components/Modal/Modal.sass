@@ -4,15 +4,15 @@
 	left: 0
 	bottom: 0
 	right: 0
-
 	height: 100%
 	width: 100%
-	background-color: $white
+	background-color: transparentize($black, .5)
 
 	&-inner
 		max-width: unit(700)
 		margin: 4rem auto
-		box-shadow: 0 0 10px 0 #0000000a
+		box-shadow: unit(3) unit(8) unit(20) 0 #0000001e
 		border: 1px solid darken($gray-00, 2%)
 		border-radius: unit(4)
-		padding: 2rem
+		padding: 2rem 3rem
+		background-color: $bg
