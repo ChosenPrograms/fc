@@ -3,7 +3,12 @@ extends components/Layout/Layout.pug
 block content
     //- include components/Nav/Nav.pug
     div.card(style="margin: 1rem; padding: 3rem;")
-        input.form-control.input-block(placeholder="Title")
-        input(type="radio")
-        br
-        input(type="checkbox")
+        button.btn.btn-primary Open
+
+        .modal
+            .modal-inner
+                .modal-controller 
+                    button.btn.btn-danger.btn-sm.rounded x
+
+                .modal-content
+                    h1 Great things happen everyday, You just need to be there

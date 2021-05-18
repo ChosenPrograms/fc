@@ -41,7 +41,9 @@ const DOM: InterfaceDOM = {
 			return false;
 		}
 
-		throw new Error("Something bad is happening here");
+		console.log(typeof element);
+
+		console.log(element);
 	},
 };
 

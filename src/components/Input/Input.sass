@@ -1,22 +1,4 @@
-.form-control
-	padding: unit(5) unit(12)
-	font-size: unit(14)
-	line-height: unit(20)
-	border: 1px solid $gray-20
-	transition: .2s linear box-shadow, .3s border
-	outline: 0
-	border-radius: unit(4)
-	background-color: $gray-00
-	color: $text
-	
-	&::placeholder
-		color: $gray-50
+@import 'CoreInput'
+@import 'Switch'
+@import 'Radio'
 
-
-	&:focus
-		border-color: darken($blue, 10%)
-		box-shadow: 0 0 0 unit(3) transparentize($blue, .85)
-
-.input-block
-	display: block
-	width: 100%

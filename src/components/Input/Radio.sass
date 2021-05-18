@@ -1,0 +1,57 @@
+.radio
+	position: relative
+
+	input
+		// -webkit-appearance: none
+		opacity: .001
+		position: absolute
+		top: 0
+		left: 0
+		height: unit(24)
+		width: unit(34)
+		border-radius: unit(100)
+		cursor: pointer
+		z-index: 1
+
+		// &:active + .switch-container > .switch-toggler
+		// 	transform: scaleX(1.21)
+
+		// &:checked:active + .switch-container > .switch-toggler
+		// 	transform: scaleX(1.21) translateY(-50%) translateX(-2px)
+
+		&:checked + .radio-container > .radio-toggler
+			transform: scale(1)
+			opacity: 1
+
+		&:checked + .radio-container
+			background-color: transparentize($blue, .85)
+			transition: .1s background-color
+			border-color: $blue
+
+		&:focus + .radio-container
+			box-shadow: 0 0 0 unit(3) transparentize($blue, .8) inset
+			border-color: transparentize($blue, .3)
+			background-color: $white !important
+
+
+			
+	&-container
+		position: relative
+		height: unit(24)
+		width: unit(24)
+		background-color: $gray-10
+		box-shadow: 0 0 0 unit(5) #fff inset
+		border: unit(1) solid $gray-20
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&-toggler
+		opacity: 0
+		height: unit(12)
+		width: unit(12)
+		border-radius: 50%
+		background-color: $blue
+		transform: scale(0)
+		transition: .15s transform

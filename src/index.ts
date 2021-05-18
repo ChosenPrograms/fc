@@ -1,30 +1,12 @@
-import './style.sass';
-import $ from './lib/Helper/Helper';
+import "./style.sass";
+import $ from "./lib/Helper/Helper";
 
-//@ts-ignore
-window.$ = $;
-//@ts-ignore
-window.app = {
-    mode: 'development'
-}
+// let getInput: HTMLInputElement = $.select("#change_theme")[0];
+// let getCard: HTMLDivElement = $.select(".card")[0];
 
-// if (app.mode === 'production') {
-//     $.log(
-//         'Stop!',
-//         {
-//             color: 'red',
-//             'font-size': '48px',
-//             'text-shadow': '1px 0 0px black',
-//             'font-family': 'helvetica'
-//         }
-//     );
-//
-//     $.log(
-//         'This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a feature or "hack" someone\'s account, it is a scam and will give them access to your account.',
-//         {
-//             'font-size': '18px',
-//             color: 'black',
-//             'font-family': 'segoe ui'
-//         }
-//     )
-// }
+// $.on("change", getInput, () => {
+// 	document.body.style.backgroundColor = getInput.checked
+// 		? "#212121"
+// 		: "#f0f2f5";
+// 	getCard.style.backgroundColor = getInput.checked ? "#313131" : "#fff";
+// });

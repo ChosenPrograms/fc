@@ -1,0 +1,58 @@
+.switch
+	position: relative
+
+	input
+		// -webkit-appearance: none
+		opacity: .001
+		position: absolute
+		top: 0
+		left: 0
+		height: unit(24)
+		width: unit(34)
+		border-radius: unit(100)
+		cursor: pointer
+		z-index: 1
+
+		// &:active + .switch-container > .switch-toggler
+		// 	transform: scaleX(1.21)
+
+		// &:checked:active + .switch-container > .switch-toggler
+		// 	transform: scaleX(1.21) translateY(-50%) translateX(-2px)
+
+		&:focus + .switch-container
+			box-shadow: 0 0 0 unit(3) transparentize($blue, .8) inset
+			border-color: transparentize($blue, .3)
+			background-color: $white !important
+
+		&:checked + .switch-container > .switch-toggler
+			background-color: $blue
+			margin-left: unit(13)
+			height: unit(16)
+			width: unit(16)
+
+		&:checked + .switch-container
+			background-color: transparentize($blue, .85)
+			transition: .1s background-color
+
+
+			
+	&-container
+		position: relative
+		height: unit(24)
+		width: unit(34)
+		background-color: $gray-10
+		box-shadow: 0 0 0 unit(3) #fff inset
+		border: unit(1) solid $gray-20
+		border-radius: unit(100)
+
+	&-toggler
+		position: absolute
+		top: 50%
+		left: 0
+		transform: translateY(-50%)
+		height: unit(12)
+		width: unit(12)
+		margin-left: unit(4)
+		border-radius: 50%
+		background-color: $gray-50
+		transition: .15s linear margin-left
