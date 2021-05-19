@@ -6,13 +6,43 @@
 	right: 0
 	height: 100%
 	width: 100%
-	background-color: transparentize($black, .5)
+	background-color: transparentize($black, .7)
+	overflow-y: auto
 
 	&-inner
-		max-width: unit(700)
-		margin: 4rem auto
+		max-width: unit(600)
+		margin: 2rem auto
 		box-shadow: unit(3) unit(8) unit(20) 0 #0000001e
 		border: 1px solid darken($gray-00, 2%)
 		border-radius: unit(4)
-		padding: 2rem 3rem
+		padding: 2rem 3rem 4rem
 		background-color: $bg
+
+	&-close-btn
+		display: block
+		margin-left: auto
+		background-color: transparent
+		cursor: pointer
+
+		svg
+			width: unit(10)
+			color: transparentize($gray-45, .5)
+
+	&-controller
+		display: block
+
+	&-content
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6
+			font-weight: 700
+			color: lighten($text, 25%)
+			margin-top: 0
+
+		p, li, span
+			font-size: unit(14)
+			color: lighten($text, 30%)
