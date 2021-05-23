@@ -1,5 +1,5 @@
 import "./style.sass";
-import $ from "./lib/Helper/Helper";
+// import $ from "./lib/Helper/Helper";
 
 // let getInput: HTMLInputElement = $.select("#change_theme")[0];
 // let getCard: HTMLDivElement = $.select(".card")[0];

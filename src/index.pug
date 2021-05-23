@@ -1,46 +1,19 @@
 extends components/Layout/Layout.pug
 
+block styles
+    style.
+        .is-active {
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 4px;
+            background-color: #98fff1;
+        }
+
 block content
     //- include components/Nav/Nav.pug
     div.card(style="margin: 1rem; padding: 3rem;")
         button.btn.btn-primary(data-toggle="modal" data-target="#security_modal") Open
-        
-    div.card(style="margin: 1rem auto; width: 600px; padding: 3rem;")
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exe
-        
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-    div.card(style="margin: 3rem auto; width: 600px; padding: 3rem;")
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exe
-        
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        button.btn.btn-danger New Button
 
-        .modal#security_modal
-            .modal-inner
-                .modal-controller 
-                    button.modal-close-btn
-                        // SMART_OBJECT
-                        <svg aria-hidden="true" focusable="false" data-prefix="fa" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
-
-                .modal-content
-                    img(src="https://www.gstatic.com/identity/boq/policies/privacy/privacy_illustration.svg" style="width: 300px; display: block; margin: 2rem auto;")
-                    h1.text-center.
-                        #[img(src="https://lh3.googleusercontent.com/yxa9oRnYpttPf-At8OgHloAdPOGRDbPxyI98-ZwviWXNmMpAmPjGg6RWDeGzU1McLVeve6c_lwHYUwjId8TV2VfjmqmHWhItTNGBfjY" style="width: 30px; position: relative; top: 5px; left: -5px")]
-                        Privacy Checkup
-
-                    .card.border(style="padding: 1rem")
-                        p Manage security vulniariablties to access only yourself will prevent from spamming and hacking!
-                        
-                    .card.border(style="padding: 1rem; margin-top: 2rem")
-                        p ![strong Re-enable security layer]
-                        
-                        p Steps:
-                        ul 
-                            li Go to
-                                 a(href="#") Google
-                            li Remove layer socket
-                            li Enter Password
-                            li Attach New security layer.
-                            
-                    button.btn.btn-success.input-block(style="margin-top: 1rem; padding: .5rem;") #{'OK'.toUpperCase()}
-    
+    .target.is-activeon.is-active.ais-active.is-acticve Just Target

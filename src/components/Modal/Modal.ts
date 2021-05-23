@@ -1,10 +1,8 @@
-// @updated 19 May, 21
-let //get buttons
-	modalButtons: NodeList = document.querySelectorAll('[data-toggle="modal"]');
+import $ from "../../lib/Helper/Helper";
 
-// Set Event
-modalButtons.forEach((elm) => {
-	elm.addEventListener("click", () => {
-		let target: HTMLElement | null = document.querySelector("");
-	});
-});
+
+$('button').on('click', function () {
+    $('.target').removeClass( 'is-active' ).addClass('is-active-2').on('dblclick', function ( ){
+        console.log('Clicked');
+    })
+})

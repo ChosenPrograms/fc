@@ -90,7 +90,7 @@ const CONFIG = {
     // development server
     devServer: {
         contentBase: PATH.join(__dirname, 'build'),
-        port: 9000,
+        port: 8080,
     },
 
     //modules

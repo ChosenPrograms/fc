@@ -83,7 +83,8 @@
     	<div class="modal-inner">
     		<div class="modal-controller">
     			<button class="modal-close-btn">
-    				<!-- SMART_OBJECT--><svg
+    				<!-- SMART_OBJECT-->
+                    <svg
     					aria-hidden="true"
     					focusable="false"
     					data-prefix="fa"
