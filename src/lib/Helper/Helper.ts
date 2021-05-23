@@ -19,11 +19,11 @@
 let
 	version = "1.0.0",
 
-	// Define a local copy of jQuery
+	// Define a local copy of Helper
 	$: any = function( selector:string ) : any {
 
-		// The jQuery object is actually just the init constructor 'enhanced'
-		// Need init if jQuery is called (just allow error to be thrown if not included)
+		// The Helper object is actually just the init constructor 'enhanced'
+		// Need fn if Helper is called (just allow error to be thrown if not included)
 		return new $.fn( selector );
 	};
 
