@@ -8,6 +8,13 @@
 	width: 100%
 	background-color: transparentize($black, .7)
 	overflow-y: auto
+	display: none
+
+	&.is-active
+		display: block
+
+		&-inner
+			transform: translateY(0)
 
 	&-inner
 		max-width: unit(600)
@@ -17,6 +24,9 @@
 		border-radius: unit(4)
 		padding: 2rem 3rem 4rem
 		background-color: $bg
+		transform: translateY(-100px)
+		transition: transform .2s
+
 
 	&-close-btn
 		display: block
