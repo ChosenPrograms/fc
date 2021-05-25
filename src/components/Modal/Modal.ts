@@ -2,7 +2,9 @@ import $ from "../../lib/Helper/Helper";
 
 
 $('button').on('click', function () {
-    $('.target').removeClass( 'is-active' ).addClass('is-active-2').on('dblclick', function ( ){
-        console.log('Clicked');
-    })
+    // $('.target').toggleClass('is-active');
+
+    $('p').remove();
+    // The main terget is to see how the selection of and element works
+    // during the chain....
 })

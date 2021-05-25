@@ -71,7 +71,7 @@ $.extend ( {
             let getClassName = element.className;
 
             if ( getClassName.indexOf(className) < 0 ) {
-                element.className = getClassName.concat( ' '+ className)
+                element.className = getClassName.concat( ' '+ className).replace(/\s+/g, ' ').trim()
             }
         });
 
@@ -86,9 +86,9 @@ $.extend ( {
             let getClassName = element.className;
 
             if ( getClassName.indexOf(className) < 0 ) {
-                element.className = getClassName.concat(className)
+                element.className = getClassName.concat(className).replace(/\s+/g, ' ').trim()
             } else {
-                element.className = getClassName.replace(regx, ' ')
+                element.className = getClassName.replace(regx, ' ').replace(/\s+/g, ' ').trim()
             }
         });
 
@@ -96,22 +96,58 @@ $.extend ( {
     },
 
     toggleClass( className: string ) {
+        // let getAttr: string | null = element.getAttribute('class');
+        const regx = new RegExp('(\\s|^)' + className + '(\\s|$)', "g")
 
+        this.list.forEach((element: HTMLElement) => {
+            let getClassName = element.className;
+
+            if ( ! regx.test(getClassName) ) {
+                element.className = getClassName.concat( ' ' + className).replace(/\s+/g, ' ').trim()
+            } else {
+                element.className = getClassName.replace(regx, ' ').replace(/\s+/g, ' ').trim()
+            }
+        });
         return this;
+    },
+
+    hasClass( className: string ) {
+        const regx = new RegExp('(\\s|^)' + className + '(\\s|$)', "g");
+        if ( this.list[0] ) {
+            let getClassName : string = this.list[0].className;
+            return regx.test(getClassName)
+        }
+
+        return false;
+    },
+
+    attr( name: string, value: string | number | boolean | null = null ): string {
+        let getAttr: string = this.list[0].getAttribute( name );
+
+        //check value is exit or not
+        if ( value){
+            this.list[0].setAttribute(name, value);
+            return 'changed';
+        }
+
+        return getAttr;
+    },
+
+    remove() {
+        this.list.forEach((element: HTMLElement) => {
+            let parent = element.parentElement;
+            parent?.removeChild(element);
+        });
     },
 
 
     on( event: string, callback: any ) {
-        console.log(this);
         if (typeof event !== 'undefined' && typeof callback === 'function') {
             this.list.forEach((element: HTMLElement) => {
                 // element.addEventListener(event, callback)
                 element.addEventListener(event, callback)
             });
         }
-
-        
-
         return this;
     }
 } )
