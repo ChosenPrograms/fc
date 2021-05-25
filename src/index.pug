@@ -15,10 +15,16 @@ block content
         button.btn.btn-primary(data-toggle="modal" data-target="#security_modal") Open
 
         button.btn.btn-danger New Button
+        input.form-control(type="text")
 
-    .target.is-activeon.is-active.ais-active.is-acticve Just Target
+        br
 
-    div.card(style="margin: 1rem; padding: 3rem;")
-        p First
-        p Second
-        p Thrid
+        h1 ... 
+
+        br
+
+        ._1 
+            ._2 
+                - for (let x = 1; x < 5+1; x++ )
+                    - let className = 'n' + x
+                    p(class=className) Para - #{x}

@@ -9,12 +9,12 @@
  * also be used with Axios
  */
 
+import { isNumber, isString } from "./Functions";
+
 
 /* global Symbol */
 // Defining this global in .eslintrc.json would create a danger of using the global
 // unguarded in another place, it seems safer to define global only for this module
-
-
 
 let
 	version = "1.0.0",
@@ -133,6 +133,24 @@ $.extend ( {
         return getAttr;
     },
 
+    closest( selector: string ) {
+        let el : HTMLElement | null = this.list[0];
+
+        //@ts-ignore
+        const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+        
+        while (el) {
+            if (matchesSelector.call(el, selector)) {
+                this.list = el;
+                return this;
+            } else {
+                el = el.parentElement;
+            }
+        }
+        
+        return this;
+    },
+
     remove() {
         this.list.forEach((element: HTMLElement) => {
             let parent = element.parentElement;
@@ -140,6 +158,48 @@ $.extend ( {
         });
     },
 
+    prev( ) {
+        const prevE: Element[] = []
+        this.list.forEach((element: HTMLElement) => {
+            if ( element.previousElementSibling ) {
+                prevE.push(  element.previousElementSibling )
+            }
+        });
+
+        this.list = prevE; //new list items
+
+        return this;
+    },
+
+    next( ) {
+        const nextE: Element[] = []
+        this.list.forEach((element: HTMLElement) => {
+            if ( element.nextElementSibling ) {
+                nextE.push(  element.nextElementSibling )
+            }
+        });
+        this.list = nextE; //new list items
+        return this;
+    },
+
+    val() {
+        if (this.list[0].value){
+            return this.list[0].value
+        }
+    },
+
+    html( html: 'string') {
+
+        if (this.list[0]) {
+            this.list[0].innerHTML = escape(html);
+        }
+    },
+
+    text( text: 'string'){
+        if (this.list[0]) {
+            this.list[0].innerText = text;
+        }
+    },
 
     on( event: string, callback: any ) {
         if (typeof event !== 'undefined' && typeof callback === 'function') {
@@ -150,7 +210,15 @@ $.extend ( {
         }
         return this;
     }
-} )
+} );
+
+
+/////////////////// STYLE
+$.extend({
+    css( obj: {} ){
+        
+    }
+})
 
 
 /**

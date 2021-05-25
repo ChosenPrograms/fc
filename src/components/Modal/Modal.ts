@@ -1,10 +1,7 @@
 import $ from "../../lib/Helper/Helper";
 
 
-$('button').on('click', function () {
-    // $('.target').toggleClass('is-active');
+$('input').on('input', (e: any) => {
 
-    $('p').remove();
-    // The main terget is to see how the selection of and element works
-    // during the chain....
-})
+    $('h1').text(e.target.value)
+} ) 
