@@ -9,12 +9,17 @@
 	background-color: transparentize($black, .7)
 	overflow-y: auto
 	display: none
+	z-index: 1000
+
+	svg
+		pointer-events: none
 
 	&.is-active
 		display: block
 
-		&-inner
-			transform: translateY(0)
+		.modal-inner
+			animation: fade .3s linear
+
 
 	&-inner
 		max-width: unit(600)
@@ -24,8 +29,6 @@
 		border-radius: unit(4)
 		padding: 2rem 3rem 4rem
 		background-color: $bg
-		transform: translateY(-100px)
-		transition: transform .2s
 
 
 	&-close-btn
@@ -56,3 +59,10 @@
 		p, li, span
 			font-size: unit(14)
 			color: lighten($text, 30%)
+
+
+@keyframes fade
+	0%
+		transform: translateY(-50px)
+	100%
+		transform: translateY(0)

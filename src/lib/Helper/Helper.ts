@@ -9,7 +9,7 @@
  * also be used with Axios
  */
 
-import { isNumber, isString } from "./Functions";
+import {  isFunction, isString, isUndefined } from "./Functions";
 
 
 /* global Symbol */
@@ -28,27 +28,42 @@ let
 	};
 
 
-$.fn = function ( selector : string ) {
+$.fn = function ( selector : string | HTMLElement | NodeList ) {
+    this.list = []
 
-    if ( typeof selector === 'undefined' ) {
+    if ( isUndefined(selector) ) {
         throw new Error('Selector must be defined!')
     }
 
-    if ( selector.trim() === '' ) {
-        this.list = []
-    } else if ( typeof selector === 'string' ) {
-        try {
-            this.list = document.querySelectorAll(selector);
-        } catch (err) {
-            new TypeError('Invalid selector')
-            this.list = []
+    if ( isString(selector) ) {
+        //@ts-ignore
+        if ( selector.trim() === '' ) {
+        } else if ( isString(selector) ) {
+            try {
+                      //@ts-ignore
+                this.list = document.querySelectorAll(selector);
+            } catch (err) {
+                new TypeError('Invalid selector')
+                this.list = []
+            }
+        } else {
+            throw new Error('Invalid selector')
         }
-    } else {
-        throw new Error('Invalid selector')
     }
 
+    if ( selector instanceof HTMLElement) {
+        this.list.push(selector); // selector is a htmlElement
+    }
+
+    if ( selector instanceof NodeList ) {
+        this.list.push(selector); // selector is a NodeList
+    }
+
+    if ( ! isString(selector) &&  !(selector instanceof NodeList) && !(selector instanceof HTMLElement )) {
+        console.log('error');
+    }
     
-    this.length = this.list.length;
+    // this.length = this.list.length;
     return this;
 }
 
@@ -141,13 +156,13 @@ $.extend ( {
         
         while (el) {
             if (matchesSelector.call(el, selector)) {
-                this.list = el;
+                this.list = [el];
                 return this;
             } else {
                 el = el.parentElement;
             }
         }
-        
+
         return this;
     },
 
@@ -202,7 +217,7 @@ $.extend ( {
     },
 
     on( event: string, callback: any ) {
-        if (typeof event !== 'undefined' && typeof callback === 'function') {
+        if ( !isUndefined(event) && isFunction(callback)) {
             this.list.forEach((element: HTMLElement) => {
                 // element.addEventListener(event, callback)
                 element.addEventListener(event, callback)
@@ -214,11 +229,11 @@ $.extend ( {
 
 
 /////////////////// STYLE
-$.extend({
-    css( obj: {} ){
+// $.extend({
+//     css( obj: {} ){
         
-    }
-})
+//     }
+// })
 
 
 /**
@@ -226,7 +241,7 @@ $.extend({
  * @package Direct Add To The Helper
  */
 
-$.version = '1.0.0';
+$.version = version;
 
 $.log = function  ( message: string, style: any = { color: 'blue' } ) {
     let styled = '';
@@ -240,6 +255,7 @@ $.log = function  ( message: string, style: any = { color: 'blue' } ) {
  * 
  * @package Set to window
  */
+
 if ( window ) {
     // @ts-ignore
     window.$ = $;

@@ -1,30 +1,12 @@
 extends components/Layout/Layout.pug
 
-block styles
-    style.
-        .is-active {
-            padding: 1rem;
-            margin: 1rem;
-            border-radius: 4px;
-            background-color: #98fff1;
+block styles 
+    style. 
+        h1 {
+            font-weight: 100;
+            font-size: 52px;
         }
 
 block content
     //- include components/Nav/Nav.pug
-    div.card(style="margin: 1rem; padding: 3rem;")
-        button.btn.btn-primary(data-toggle="modal" data-target="#security_modal") Open
-
-        button.btn.btn-danger New Button
-        input.form-control(type="text")
-
-        br
-
-        h1 ... 
-
-        br
-
-        ._1 
-            ._2 
-                - for (let x = 1; x < 5+1; x++ )
-                    - let className = 'n' + x
-                    p(class=className) Para - #{x}
+    

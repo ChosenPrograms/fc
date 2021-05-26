@@ -8,6 +8,10 @@ const MODE = 'development';
 const DEV_TOOl = 'source-map';
 const TARGET = 'web';
 
+console.clear();
+console.log('Initiating...')
+
+
 // Get File extensions
 const TEST = {
     pug: /\.pug$/i,
