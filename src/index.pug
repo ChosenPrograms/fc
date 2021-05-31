@@ -1,12 +1,22 @@
 extends components/Layout/Layout.pug
 
-block styles 
-    style. 
-        h1 {
-            font-weight: 100;
-            font-size: 52px;
-        }
-
 block content
-    include components/Nav/Nav.pug
-    
+     div
+          include components/Nav/Nav.pug
+          include components/Status/Status.pug
+          
+     div(aria-label='main')
+          div
+               include components/Trending/Trending.pug
+
+          .bigdata
+               .create-post(style="border: 1px solid #eee; height: 65px; background-color: #fff; border-radius: 4px; width: 700px; margin: 2rem auto;")
+
+               .box(style="padding: 1rem ")
+                    p Worring About Doing something useful
+                    img(src="https://www.wikihow.com/images/thumb/1/1f/Know-if-Someone-is-Lying-Step-4-Version-4.jpg/aid1228359-v4-728px-Know-if-Someone-is-Lying-Step-4-Version-4.jpg" style="width: 100%; display: block;" alt="demo illustration")
+
+               .box(style="padding: 1rem ")
+                    h1 Blowing the mind
+                    p Mind if always use in case you apperantly
+                    img(src="https://www.wikihow.com/images/thumb/4/4d/Go-With-the-Flow-Step-6.jpg/aid1124587-v4-728px-Go-With-the-Flow-Step-6.jpg" style="width: 100%; display: block;" alt="demo illustration")

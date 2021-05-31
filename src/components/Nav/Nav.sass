@@ -1,7 +1,174 @@
+@import ../../sass/functions
+@import ../../sass/variables
+
 @mixin center
     display: flex
     align-items: center
     justify-content: center
 
-nav
-    display: none
+.nav
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    background-color: $white
+    height: unit(55)
+    // border-bottom: 1px solid $gray-10
+    box-shadow: 0 0 0 1px #00000014
+
+    &.is-active
+        box-shadow: 0 1px 7px 0 #0000001a, 0 0 0 1px #0000000d
+
+    &-container
+        display: flex
+        justify-content: space-between
+
+    .leftside
+        display: flex
+        align-items: center
+        
+
+    .brand
+        svg
+            display: block
+            width: unit(40)
+            height: unit(40)
+
+    .nav-search
+        position: relative
+        margin-left: unit(12)
+        overflow: hidden
+
+        input
+            border: none
+            background-color: $gray-05
+            font-size: unit(15)
+            height: unit(40)
+            width: unit(240)
+            border-radius: unit(99)
+            outline: 0
+            padding: 1rem 1rem 1rem 2rem
+            color: $text
+            
+            &:focus::placeholder
+                color: transparentize($text, .5)
+
+            &.focused
+                padding-left: 1rem
+                width: 250px
+
+        .nav-input-placeholder
+            display: flex
+            align-items: center
+            position: absolute
+            top: 50%
+            left: 11px
+            transform: translateY(-7px)
+            font-family: $default-font
+            color: $gray-45
+            pointer-events: none
+            transition: .1s left linear
+
+            &.is-active
+                left: -20px
+
+                // span 
+                //     display: none
+
+
+            svg 
+                height: unit(16)
+                width: unit(16)
+                margin-right: unit(4)
+
+    .nav-links
+
+        .nav-list
+            display: flex
+            align-items: center
+
+            margin: 0
+            padding-left: 0
+            list-style-type: none
+
+            li
+                height: 100%
+
+                &.is-active
+                    border-bottom: 3px solid $blue
+
+                    a
+                        color: $blue
+
+                        span
+                            svg
+                                fill: $blue
+
+                a
+                    width: 45px
+                    height: 45px
+                    border-radius: 50%
+                    color: $black
+                    margin: 0 .5rem
+
+                    &:hover
+                        background-color: lighten( $gray-10, 2%)
+                        cursor: pointer
+
+                    // &:not(.profile-photo):focus
+                    &:focus
+                        // box-shadow: 0 0 0 3px lighten( $blue, 30%) inset
+                        background-color: lighten( $blue, 45%)
+
+                    span
+                        line-height: 0
+
+                        svg
+                            fill: $black
+
+    .nav-profile-icon
+        border-radius: 50%
+        &:hover
+            .nav-profile-icon-circle
+                animation: stroke 4s ease-in-out
+
+    .nav-profile-icon-circle
+        fill: none
+        stroke: $blue
+        stroke-linecap: round
+        stroke-width: 3
+        stroke-dasharray: 1
+        stroke-dashoffset: 0
+        animation: stroke 3.25s ease-in-out
+
+
+@keyframes stroke
+    from
+        stroke: $pink
+        stroke-dasharray: 5
+
+    to
+        stroke: $blue
+        stroke-dasharray: 150
+    
+    
+    
+
+// @keyframes stroke
+//     0%
+//         stroke-dasharray: 0
+//         opacity: 0
+
+//     30%
+//         stroke-dasharray: 25
+//     50%
+//         stroke-dasharray: 80
+
+//     70%
+//         stroke-dasharray: 10
+
+//     100%
+//         stroke-dasharray: 100
+//         opacity: 1
+
+        

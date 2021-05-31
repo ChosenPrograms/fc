@@ -86,7 +86,8 @@ $.extend ( {
             let getClassName = element.className;
 
             if ( getClassName.indexOf(className) < 0 ) {
-                element.className = getClassName.concat( ' '+ className).replace(/\s+/g, ' ').trim()
+                let newName: string = getClassName.concat( ' '+ className).replace(/\s+/g, ' ').trim();
+                element.className = newName
             }
         });
 
@@ -99,12 +100,12 @@ $.extend ( {
 
         this.list.forEach((element: HTMLElement) => {
             let getClassName = element.className;
-
-            if ( getClassName.indexOf(className) < 0 ) {
-                element.className = getClassName.concat(className).replace(/\s+/g, ' ').trim()
-            } else {
-                element.className = getClassName.replace(regx, ' ').replace(/\s+/g, ' ').trim()
-            }
+            element.className = getClassName.replace(regx, ' ').replace(/\s+/g, ' ').trim()
+            // if ( getClassName.indexOf(className) < 0 ) {
+            //     element.className = getClassName.concat(className).replace(/\s+/g, ' ')
+            // } else {
+                
+            // }
         });
 
         return this;
@@ -197,9 +198,14 @@ $.extend ( {
         return this;
     },
 
-    val() {
-        if (this.list[0].value){
-            return this.list[0].value
+    val( value: string ) {
+        if (this.list[0]){
+            if ( value !== '' &&  ! isUndefined(value) ) {
+                this.list[0].value = value;
+                return false;
+            }
+
+            return this.list[0].value.trim();
         }
     },
 

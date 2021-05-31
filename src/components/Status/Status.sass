@@ -1,0 +1,32 @@
+@import ../../sass/functions
+@import ../../sass/variables
+
+.status
+	margin-top: unit(55)
+	height: unit(35)
+	width: 100%
+	background-color: $white
+	//border-bottom: 1px solid $gray-10
+	box-shadow:0 1px 7px 0 #0000001a, 0 0 0 1px #0000000d
+
+	&-list
+		padding-left: 0
+		margin: 0
+		list-style-type: none
+
+
+		li
+			&.is-active
+				border-bottom: 3px solid $blue
+
+			a
+				display: block
+				padding: .25rem 1rem
+				color: lighten($text, 10%)
+				font-size: unit(14)
+				font-weight: 400
+				text-decoration: none
+				font-weight: 600
+
+				&:hover
+					color: $blue

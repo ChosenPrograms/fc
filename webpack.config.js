@@ -8,16 +8,12 @@ const MODE = 'development';
 const DEV_TOOl = 'source-map';
 const TARGET = 'web';
 
-console.clear();
-console.log('Initiating...')
-
-
 // Get File extensions
 const TEST = {
     pug: /\.pug$/i,
     script: /\.ts$/i,
     style: /\.sass$/i,
-    assets: /\.(png|jpeg|svg|ico)$/i
+    assets: /\.(png|jpeg|svg|ico|jpg)$/i
 };
 
 // Entry & output
@@ -120,14 +116,14 @@ const LOADERS = [
         use: [
             MINI_CSS_EXTRACT_PLUGIN.loader,
             'css-loader',
-            {
-                loader: 'postcss-loader',
-                options: {
-                    postcssOptions: {
-                        plugins: ['autoprefixer']
-                    }
-                }
-            },
+            // {
+            //     loader: 'postcss-loader',
+            //     options: {
+            //         postcssOptions: {
+            //             plugins: ['autoprefixer']
+            //         }
+            //     }
+            // }, 
             'sass-loader'
         ]
     },
