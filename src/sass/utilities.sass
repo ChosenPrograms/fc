@@ -1,5 +1,5 @@
 .container
-    max-width: ($device-lg)+px // 1150px
+    max-width: ($device-lg - 150)+px // 1150px
     margin-left: auto
     margin-right: auto
 
@@ -42,6 +42,10 @@
     height: 24px
     width: 24px
 
+    & > * 
+        height: 24px
+        width: 24px    
+
 .opacity-low
     opacity: .4 !important
 
@@ -59,3 +63,19 @@
     text-align: center !important
 
 ///////////////////// Responsive classes
+.img-responsive
+    width: 100%
+
+////////////////////// Shadow
+.shadow
+    box-shadow: 0 1px 2px #00000033
+
+///////////////////// none
+.pointer-none
+    pointer-events: none !important
+
+.user-select-none
+    user-select: none !important
+
+.drag-none
+    -webkit-user-drag: none

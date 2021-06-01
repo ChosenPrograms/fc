@@ -137,11 +137,11 @@ $.extend ( {
         return false;
     },
 
-    attr( name: string, value: string | number | boolean | null = null ): string {
+    attr( name: string, value: string): string {
         let getAttr: string = this.list[0].getAttribute( name );
 
         //check value is exit or not
-        if ( value){
+        if ( value === 'false' && ! isUndefined(value) ){
             this.list[0].setAttribute(name, value);
             return 'changed';
         }
