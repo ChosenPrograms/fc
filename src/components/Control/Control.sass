@@ -52,6 +52,7 @@
 				display: block
 
 			.options
+				display: block
 				transform: translateY(0)
 				opacity: 1
 
@@ -72,6 +73,8 @@
 			margin: 0 .5rem
 			font-size: unit(14)
 			font-weight: 700
+			line-height: 0
+			color: lighten($text, 15%)
 			transition: transform .3s
 
 		.icon-sm
@@ -90,6 +93,7 @@
 			max-height: unit(300)
 			width: unit(250)
 			overflow-y: auto
+			display: none
 			transform: translateY(10px)
 			opacity: 0
 			transition: transform .1s, opacity .1s

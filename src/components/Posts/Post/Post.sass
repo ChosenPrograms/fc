@@ -1,0 +1,86 @@
+.post-container
+	max-width: 600px
+	margin: 1rem auto
+
+.article
+	width: 100%
+	background-color: $white
+	border-radius: unit(4)
+	margin: 1rem 0
+
+	&-info
+		position: relative
+		top: -6px
+		padding: 1rem
+		align-items: center
+
+		.more-info
+			margin-left: .75rem
+		
+		.authortopics
+			align-items: center
+			margin-bottom: unit(2)
+
+			.author
+				font-weight: 700
+				text-decoration: none
+				color: $text
+				line-height: 1
+
+				&:hover
+					text-decoration: underline
+
+		.topics
+			text-decoration: none
+			padding: unit(2) 1rem
+			border-radius: 99rem
+			font-size: unit(12)
+			background-color: $blue
+			color: $white
+			text-align: center
+
+		.time
+			font-size: unit(12)
+			color: $gray-45
+			margin-left: .5rem
+			text-decoration: none
+			line-height: 1
+
+			&:hover
+				text-decoration: underline
+
+		.author-img // an image
+			border-radius: 50%
+			height: 48px
+			width: 48px
+			
+		.author-link
+			line-height: 1
+
+	&-body
+		.text
+			padding: 0 1rem 1rem
+			font-size: 15px
+
+			* 
+				margin: .5rem 0 !important
+				padding: 0 !important
+				color: $text
+
+			.title
+				font-size: 1rem 
+				font-weight: 700
+
+			a
+				text-decoration: none
+
+				&:hover
+					text-decoration: underline
+
+		img
+			width: 100%
+
+		.article-thumbnail
+			line-height: 0
+			display: block
+
