@@ -9,7 +9,11 @@
  * also be used with Axios
  */
 
-import {  isFunction, isString, isUndefined } from "./Functions";
+import {
+    isFunction,
+    isString,
+    isUndefined
+} from "./Functions";
 
 
 /* global Symbol */
@@ -17,30 +21,29 @@ import {  isFunction, isString, isUndefined } from "./Functions";
 // unguarded in another place, it seems safer to define global only for this module
 
 let
-	version = "1.0.0",
+    version = "1.0.0",
 
-	// Define a local copy of Helper
-	$: any = function( selector:string ) : any {
+    // Define a local copy of Helper
+    $: any = function (selector: string): any {
 
-		// The Helper object is actually just the init constructor 'enhanced'
-		// Need fn if Helper is called (just allow error to be thrown if not included)
-		return new $.fn( selector );
-	};
+        // The Helper object is actually just the init constructor 'enhanced'
+        // Need fn if Helper is called (just allow error to be thrown if not included)
+        return new $.fn(selector);
+    };
 
 
-$.fn = function ( selector : string | HTMLElement | NodeList ) {
+$.fn = function (selector: string | HTMLElement | NodeList) {
     this.list = []
 
-    if ( isUndefined(selector) ) {
+    if (isUndefined(selector)) {
         throw new Error('Selector must be defined!')
     }
 
-    if ( isString(selector) ) {
+    if (isString(selector)) {
         //@ts-ignore
-        if ( selector.trim() === '' ) {
-        } else if ( isString(selector) ) {
+        if (selector.trim() === '') {} else if (isString(selector)) {
             try {
-                      //@ts-ignore
+                //@ts-ignore
                 this.list = document.querySelectorAll(selector);
             } catch (err) {
                 new TypeError('Invalid selector')
@@ -51,25 +54,25 @@ $.fn = function ( selector : string | HTMLElement | NodeList ) {
         }
     }
 
-    if ( selector instanceof HTMLElement) {
+    if (selector instanceof HTMLElement) {
         this.list.push(selector); // selector is a htmlElement
     }
 
-    if ( selector instanceof NodeList ) {
+    if (selector instanceof NodeList) {
         this.list.push(selector); // selector is a NodeList
     }
 
-    if ( ! isString(selector) &&  !(selector instanceof NodeList) && !(selector instanceof HTMLElement )) {
+    if (!isString(selector) && !(selector instanceof NodeList) && !(selector instanceof HTMLElement)) {
         console.log('error');
     }
-    
+
     // this.length = this.list.length;
     return this;
 }
 
-$.fn.prototype['add'] = function ( ){}
+$.fn.prototype['add'] = function () {}
 
-$.extend = $.fn.extend = function ( object: any ){
+$.extend = $.fn.extend = function (object: any) {
     for (const prop in object) {
         $.fn.prototype[prop] = object[prop];
     }
@@ -80,13 +83,13 @@ $.extend = $.fn.extend = function ( object: any ){
  * 
  * @package DOM
  */
-$.extend ( {
-    addClass( className: string ) {
+$.extend({
+    addClass(className: string) {
         this.list.forEach((element: HTMLElement) => {
             let getClassName = element.className;
 
-            if ( getClassName.indexOf(className) < 0 ) {
-                let newName: string = getClassName.concat( ' '+ className).replace(/\s+/g, ' ').trim();
+            if (getClassName.indexOf(className) < 0) {
+                let newName: string = getClassName.concat(' ' + className).replace(/\s+/g, ' ').trim();
                 element.className = newName
             }
         });
@@ -94,7 +97,7 @@ $.extend ( {
         return this;
     },
 
-    removeClass( className: string ){
+    removeClass(className: string) {
 
         const regx = new RegExp('(\\s|^)' + className + '(\\s|$)', "g")
 
@@ -104,22 +107,22 @@ $.extend ( {
             // if ( getClassName.indexOf(className) < 0 ) {
             //     element.className = getClassName.concat(className).replace(/\s+/g, ' ')
             // } else {
-                
+
             // }
         });
 
         return this;
     },
 
-    toggleClass( className: string ) {
+    toggleClass(className: string) {
         // let getAttr: string | null = element.getAttribute('class');
         const regx = new RegExp('(\\s|^)' + className + '(\\s|$)', "g")
 
         this.list.forEach((element: HTMLElement) => {
             let getClassName = element.className;
 
-            if ( ! regx.test(getClassName) ) {
-                element.className = getClassName.concat( ' ' + className).replace(/\s+/g, ' ').trim()
+            if (!regx.test(getClassName)) {
+                element.className = getClassName.concat(' ' + className).replace(/\s+/g, ' ').trim()
             } else {
                 element.className = getClassName.replace(regx, ' ').replace(/\s+/g, ' ').trim()
             }
@@ -127,34 +130,37 @@ $.extend ( {
         return this;
     },
 
-    hasClass( className: string ) {
+    hasClass(className: string) {
         const regx = new RegExp('(\\s|^)' + className + '(\\s|$)', "g");
-        if ( this.list[0] ) {
-            let getClassName : string = this.list[0].className;
+        if (this.list[0]) {
+            let getClassName: string = this.list[0].className;
             return regx.test(getClassName)
         }
 
         return false;
     },
 
-    attr( name: string, value: string): string {
-        let getAttr: string = this.list[0].getAttribute( name );
+    attr(name: string, value: string): boolean | string {
+        if (this.list[0]) {
+            let getAttr: string = this.list[0].getAttribute(name);
+            return getAttr;
+        }
 
         //check value is exit or not
-        if ( value === 'false' && ! isUndefined(value) ){
+        if (value === 'false' && !isUndefined(value) && this.list[0]) {
             this.list[0].setAttribute(name, value);
             // return 'changed';
         }
 
-        return getAttr;
+        return false;
     },
 
-    closest( selector: string ) {
-        let el : HTMLElement | null = this.list[0];
+    closest(selector: string) {
+        let el: HTMLElement | null = this.list[0];
 
         //@ts-ignore
         const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
-        
+
         while (el) {
             if (matchesSelector.call(el, selector)) {
                 this.list = [el];
@@ -174,11 +180,11 @@ $.extend ( {
         });
     },
 
-    prev( ) {
+    prev() {
         const prevE: Element[] = []
         this.list.forEach((element: HTMLElement) => {
-            if ( element.previousElementSibling ) {
-                prevE.push(  element.previousElementSibling )
+            if (element.previousElementSibling) {
+                prevE.push(element.previousElementSibling)
             }
         });
 
@@ -187,20 +193,20 @@ $.extend ( {
         return this;
     },
 
-    next( ) {
+    next() {
         const nextE: Element[] = []
         this.list.forEach((element: HTMLElement) => {
-            if ( element.nextElementSibling ) {
-                nextE.push(  element.nextElementSibling )
+            if (element.nextElementSibling) {
+                nextE.push(element.nextElementSibling)
             }
         });
         this.list = nextE; //new list items
         return this;
     },
 
-    val( value: string ) {
-        if (this.list[0]){
-            if ( value !== '' &&  ! isUndefined(value) ) {
+    val(value: string) {
+        if (this.list[0]) {
+            if (value !== '' && !isUndefined(value)) {
                 this.list[0].value = value;
                 return false;
             }
@@ -209,21 +215,21 @@ $.extend ( {
         }
     },
 
-    html( html: 'string') {
+    html(html: 'string') {
 
         if (this.list[0]) {
             this.list[0].innerHTML = escape(html);
         }
     },
 
-    text( text: 'string'){
+    text(text: 'string') {
         if (this.list[0]) {
             this.list[0].innerText = text;
         }
     },
 
-    on( event: string, callback: any ) {
-        if ( !isUndefined(event) && isFunction(callback)) {
+    on(event: string, callback: any) {
+        if (!isUndefined(event) && isFunction(callback)) {
             this.list.forEach((element: HTMLElement) => {
                 // element.addEventListener(event, callback)
                 element.addEventListener(event, callback)
@@ -231,13 +237,13 @@ $.extend ( {
         }
         return this;
     }
-} );
+});
 
 
 /////////////////// STYLE
 // $.extend({
 //     css( obj: {} ){
-        
+
 //     }
 // })
 
@@ -249,11 +255,13 @@ $.extend ( {
 
 $.version = version;
 
-$.log = function  ( message: string, style: any = { color: 'blue' } ) {
+$.log = function (message: string, style: any = {
+    color: 'blue'
+}) {
     let styled = '';
 
     for (let prop in style) {
-        styled = styled.concat( `${prop}:${style[prop]};` )
+        styled = styled.concat(`${prop}:${style[prop]};`)
     }
     setTimeout(console.log.bind(console, '%c' + message, styled.substr(0, styled.length - 1)), 0)
 }
@@ -262,7 +270,7 @@ $.log = function  ( message: string, style: any = { color: 'blue' } ) {
  * @package Set to window
  */
 
-if ( window ) {
+if (window) {
     // @ts-ignore
     window.$ = $;
 }

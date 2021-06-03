@@ -5,8 +5,9 @@ div(aria-label='new articles')
 			.article-info.user-select-none
 				.info-left.flex
 					a(href="/").author-link
-						img.author-img(src="https://i.pinimg.com/originals/73/16/f5/7316f550de9ca0045e3d8d98a5bb5e44.png", alt="username")
-					div.more-info
+						.article-author-img
+							img.author-img(src="https://i.pinimg.com/originals/73/16/f5/7316f550de9ca0045e3d8d98a5bb5e44.png", alt="username")
+					div.more-info.flex
 						div.authortopics.flex
 							a.author(href="/") Tahazzot
 							a.time(aria-label='date time' href='/') 24 minutes ago
@@ -24,8 +25,9 @@ div(aria-label='new articles')
 		article.article.shadow
 			.article-info.flex.user-select-none
 				a(href="/").author-link
-					img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
-				div.more-info
+					.article-author-img
+						img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
+				div.more-info.flex
 					div.authortopics.flex
 						a.author(href="/") Stephanie
 						span.time(aria-label='date time') 3 hours ago
@@ -39,8 +41,9 @@ div(aria-label='new articles')
 		article.article.shadow
 			.article-info.flex.user-select-none
 				a(href="/").author-link
-					img.author-img(src="https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW4lMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80", alt="username")
-				div.more-info
+					.article-author-img
+						img.author-img(src="https://images.unsplash.com/photo-1532074205216-d0e1f4b87368?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW4lMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80", alt="username")
+				div.more-info.flex
 					div.authortopics.flex
 						a.author(href="/") Anonymous
 						span.time(aria-label='date time') 46 minutes ago
@@ -55,38 +58,57 @@ div(aria-label='new articles')
 				a(href="/").article-thumbnail
 					img.drag-none(src="https://www.wikihow.com/images/thumb/9/9b/Cope-with-Being-Bored-Step-13-Version-2.jpg/aid173377-v4-700px-Cope-with-Being-Bored-Step-13-Version-2.jpg", alt="Books are friend")
 
-		include ../RecommendedPost/RecommendedPost.pug
+		//- include ../RecommendedPost/RecommendedPost.pug
 		
-		article.article.shadow
-			.article-info.flex.user-select-none
-				a(href="/").author-link
-					img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
-				div.more-info
-					div.authortopics.flex
-						a.author(href="/") Stephanie
-						span.time(aria-label='date time') 3 hours ago
+		.group-articles.shadow
+			article.article
+				.article-info.flex.user-select-none
+					a(href="/").author-link
+						.article-author-img.center
+							img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
+					div.more-info.flex
+						div.authortopics.flex
+							a.author(href="/") Stephanie
+							span.time(aria-label='date time') 3 hours ago
 
-					a.topics(href="/topics/Nature") WikiMedia
+						a.topics(href="/topics/Nature") WikiMedia
 
-			.article-body
-				.text
-					p.title It's something we can't be stop at this moment right nw
-					p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
-		article.article.shadow
-			.article-info.flex.user-select-none
-				a(href="/").author-link
-					img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
-				div.more-info
-					div.authortopics.flex
-						a.author(href="/") Imao
-						span.time(aria-label='date time') 1 day ago
+				.article-body
+					.text
+						p.title It's something we can't be stop at this moment right nw
+						p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
+			article.article
+				.article-info.flex.user-select-none
+					a(href="/").author-link
+						.article-author-img.center
+							img.author-img(src="https://cdn.dribbble.com/users/1577045/screenshots/4914645/dribble_pic.png", alt="username")
+					div.more-info.flex
+						div.authortopics.flex
+							a.author(href="/") Imao
+							span.time(aria-label='date time') 1 day ago
 
-					a.topics(href="/topics/Nature") Player
+						a.topics(href="/topics/Nature") Player
 
-			.article-body
-				.text
-					p.title How to play player in windows 10
-					p One mentioned a CDN that was built specifically for image delivery, so I’ll start :)
+				.article-body
+					.text
+						p.title How to play player in windows 10
+						p One mentioned a CDN that was built specifically for image delivery, so I’ll start :)
+			article.article
+				.article-info.flex.user-select-none
+					a(href="/").author-link
+						.article-author-img.center
+							img.author-img(src="https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png", alt="username")
+					div.more-info.flex
+						div.authortopics.flex
+							a.author(href="/") Lio Messi
+							span.time(aria-label='date time') just now
+
+						a.topics(href="/topics/Nature") Only Playing
+
+				.article-body
+					.text
+						a(href='/').title How to play player in windows 10
+						p Just try to play with me
 	
 	.Pagination.flex
 		a(href="/Pages/1").prev.pageBtn <
@@ -94,4 +116,4 @@ div(aria-label='new articles')
 			- let pageName = '/Pages/' + i
 			a.pageBtn(href=pageName) #{i}
 
-		a(href="/Pages/2").next.pageBtn >
+		a(href="/Pages/43").next.pageBtn >
