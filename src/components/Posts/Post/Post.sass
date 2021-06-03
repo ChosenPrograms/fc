@@ -1,4 +1,4 @@
-.post-container
+.main-post-container.post-container
 	max-width: 600px
 	margin: 1rem auto
 
@@ -6,17 +6,20 @@
 	width: 100%
 	background-color: $white
 	border-radius: unit(4)
-	margin: 1rem 0
+	margin: 0 0 .5rem
+
+	&:hover
+		// background-color: darken($white, 1%)
 
 	&-info
-		position: relative
-		top: -6px
-		padding: 1rem
+		// position: relative
+		// top: -6px
+		padding: .75rem 1rem
 		align-items: center
 
 		.more-info
 			margin-left: .75rem
-		
+
 		.authortopics
 			align-items: center
 			margin-bottom: unit(2)
@@ -26,18 +29,28 @@
 				text-decoration: none
 				color: $text
 				line-height: 1
+				font-size: unit(15)
 
 				&:hover
 					text-decoration: underline
 
 		.topics
-			text-decoration: none
-			padding: unit(2) 1rem
-			border-radius: 99rem
-			font-size: unit(12)
-			background-color: $blue
+			font-size: unit(13)
 			color: $white
-			text-align: center
+			padding: 1px .8rem
+			border-radius: 99rem
+			text-decoration: none
+			background: $blue
+			
+
+			&:hover
+				text-decoration: underline
+			// padding: unit(2) 1rem
+			// border-radius: 99rem
+			// font-size: unit(12)
+			// background-color: $blue
+			// color: $white
+			// text-align: center
 
 		.time
 			font-size: unit(12)
@@ -51,8 +64,8 @@
 
 		.author-img // an image
 			border-radius: 50%
-			height: 48px
-			width: 48px
+			height: 40px
+			width: 40px
 			
 		.author-link
 			line-height: 1
@@ -83,4 +96,21 @@
 		.article-thumbnail
 			line-height: 0
 			display: block
+
+.Pagination
+	max-width: 600px
+	margin: 1.5rem auto
+	align-items: center
+
+	.pageBtn
+		padding: .45rem 1rem 
+		color: darken( $blue, 10% )
+		text-decoration: none
+		background-color: $white
+		font-size: 15px
+		margin-right: .25rem
+
+
+
+		
 

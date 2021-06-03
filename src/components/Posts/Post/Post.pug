@@ -1,16 +1,17 @@
 div(aria-label='new articles')
-	.post-container
+	.post-container.main-post-container
 
 		article.article.shadow
-			.article-info.flex.user-select-none
-				a(href="/").author-link
-					img.author-img(src="https://i.pinimg.com/originals/73/16/f5/7316f550de9ca0045e3d8d98a5bb5e44.png", alt="username")
-				div.more-info
-					div.authortopics.flex
-						a.author(href="/") Tahazzot
-						a.time(aria-label='date time' href='/') 24 minutes ago
+			.article-info.user-select-none
+				.info-left.flex
+					a(href="/").author-link
+						img.author-img(src="https://i.pinimg.com/originals/73/16/f5/7316f550de9ca0045e3d8d98a5bb5e44.png", alt="username")
+					div.more-info
+						div.authortopics.flex
+							a.author(href="/") Tahazzot
+							a.time(aria-label='date time' href='/') 24 minutes ago
 
-					a.topics(href="/topics/Nature") Nature
+						a.topics(href="/topics/Nature") Nature
 
 			.article-body
 				.text
@@ -20,8 +21,21 @@ div(aria-label='new articles')
 					 
 				a(href="/").article-thumbnail
 					img.drag-none(src="https://www.wikihow.com/images/thumb/4/4d/Go-With-the-Flow-Step-6.jpg/aid1124587-v4-728px-Go-With-the-Flow-Step-6.jpg", alt="Friends good")
+		article.article.shadow
+			.article-info.flex.user-select-none
+				a(href="/").author-link
+					img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
+				div.more-info
+					div.authortopics.flex
+						a.author(href="/") Stephanie
+						span.time(aria-label='date time') 3 hours ago
 
+					a.topics(href="/topics/Nature") WikiMedia
 
+			.article-body
+				.text
+					p.title It's something we can't be stop at this moment right nw
+					p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
 		article.article.shadow
 			.article-info.flex.user-select-none
 				a(href="/").author-link
@@ -41,6 +55,8 @@ div(aria-label='new articles')
 				a(href="/").article-thumbnail
 					img.drag-none(src="https://www.wikihow.com/images/thumb/9/9b/Cope-with-Being-Bored-Step-13-Version-2.jpg/aid173377-v4-700px-Cope-with-Being-Bored-Step-13-Version-2.jpg", alt="Books are friend")
 
+		include ../RecommendedPost/RecommendedPost.pug
+		
 		article.article.shadow
 			.article-info.flex.user-select-none
 				a(href="/").author-link
@@ -56,23 +72,26 @@ div(aria-label='new articles')
 				.text
 					p.title It's something we can't be stop at this moment right nw
 					p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
-
-
 		article.article.shadow
 			.article-info.flex.user-select-none
 				a(href="/").author-link
-					img.author-img(src="https://i.pinimg.com/474x/bc/d4/ac/bcd4ac32cc7d3f98b5e54bde37d6b09e.jpg", alt="username")
+					img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
 				div.more-info
 					div.authortopics.flex
-						a.author(href="/") Lethan
-						span.time(aria-label='date time') 1 hour ago
+						a.author(href="/") Imao
+						span.time(aria-label='date time') 1 day ago
 
-					a.topics(href="/topics/Nature") Advice
+					a.topics(href="/topics/Nature") Player
 
 			.article-body
 				.text
-					p.title Dignite the world, Pass is now working with glu game.
-					 
-				a(href="/").article-thumbnail
-					img.drag-none(src="https://www.wikihow.com/images/thumb/a/ac/Cope-with-Being-Bored-Step-10-Version-2.jpg/aid173377-v4-728px-Cope-with-Being-Bored-Step-10-Version-2.jpg", alt="Phone")
-		
+					p.title How to play player in windows 10
+					p One mentioned a CDN that was built specifically for image delivery, so I’ll start :)
+	
+	.Pagination.flex
+		a(href="/Pages/1").prev.pageBtn <
+		- for (let i =1; i < 6; i++)
+			- let pageName = '/Pages/' + i
+			a.pageBtn(href=pageName) #{i}
+
+		a(href="/Pages/2").next.pageBtn >

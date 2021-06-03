@@ -143,7 +143,7 @@ $.extend ( {
         //check value is exit or not
         if ( value === 'false' && ! isUndefined(value) ){
             this.list[0].setAttribute(name, value);
-            return 'changed';
+            // return 'changed';
         }
 
         return getAttr;

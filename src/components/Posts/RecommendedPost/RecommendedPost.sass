@@ -1,0 +1,46 @@
+.recommended-posts 
+	max-width: unit(550)
+	margin: auto
+
+	.heading
+		margin: 2rem 0 1rem
+		font-size: 1rem
+		color: lighten($text, 20%)
+
+	.post-container
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		column-gap: 18px
+		max-width: 600px
+		margin: auto
+
+		.backface
+			flex: 0 0 180px
+			min-height: 250px
+			align-self: stretch
+			margin: 0 0 1rem
+			padding-bottom: 1rem
+			background-color: $white
+			border-radius: 5px
+			overflow: hidden
+
+			&:hover .recommended-post .title
+				color: $blue
+
+			a
+				text-decoration: none
+
+.recommended-post
+	.img
+		overflow: hidden
+		height: 110px
+		width: 100%
+
+		img
+			width: 100%
+
+	.title
+		font-size: 1rem
+		font-weight: 700
+		color: lighten($text, 15%)
+		margin: .5rem .75rem 1rem

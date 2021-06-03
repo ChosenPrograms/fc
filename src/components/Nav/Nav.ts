@@ -53,6 +53,7 @@ input.on('blur',  () => {
 	remove ()
 });
 
+
 let
 
 	ini: number = 50,
@@ -60,10 +61,7 @@ let
 
 window.addEventListener('scroll', () => {
 	current = window.pageYOffset
-
-	console.log({ini, current});
-	
-
+	// console.log({ini, current});
 	if ( ini < current ) {
 		$('.nav').addClass('is-active')
 	} else {

@@ -9,15 +9,13 @@ prev = window.pageYOffset
 
 window.addEventListener('scroll', () => {
 	current = window.pageYOffset
-
 	if ( prev > current ) {
 		$('#default-status').addClass('is-active')
-		console.log('Up');
+		// console.log('Up');
 		
 	} else {
 		$('#default-status').removeClass('is-active')
-		console.log('Down');
-		
+		// console.log('Down');	
 	}
 
 	prev = current

@@ -5,7 +5,7 @@ const MINI_CSS_EXTRACT_PLUGIN = require("mini-css-extract-plugin");
 
 // Basic Conifg data, Mode and DEV_TOOl will be changed in production mode to decrease the file size
 const MODE = 'development';
-const DEV_TOOl = 'source-map';
+const DEV_TOOl = 'eval-cheap-module-source-map';
 const TARGET = 'web';
 
 // Get File extensions
@@ -31,29 +31,31 @@ const OUTPUT = {
 // Templates
 
 function generateHtmlPlugins(templateDir) {
-  // Read files in template directory
-  const dir = PATH.resolve(__dirname, templateDir);
-  if (!FS.existsSync(dir)) {
-    FS.mkdir(dir, { recursive: true }, (err) => {
-      if (err) throw err;
-    });
-  }
-
-  const templateFiles = FS.readdirSync(dir);
-  return templateFiles.map((item) => {
-    // Split names and extension
-    const parts = item.split(".");
-    const name = parts[0];
-    const extension = parts[1];
-
-    if (extension === "pug") {
-      // Create new HTMLWebpackPlugin with options
-      return new HTML_WEBPACK_PLUGIN({
-        filename: `pages/${name}.html`,
-        template: `${templateDir}/${name}.${extension}`,
-      });
+    // Read files in template directory
+    const dir = PATH.resolve(__dirname, templateDir);
+    if (!FS.existsSync(dir)) {
+        FS.mkdir(dir, {
+            recursive: true
+        }, (err) => {
+            if (err) throw err;
+        });
     }
-  });
+
+    const templateFiles = FS.readdirSync(dir);
+    return templateFiles.map((item) => {
+        // Split names and extension
+        const parts = item.split(".");
+        const name = parts[0];
+        const extension = parts[1];
+
+        if (extension === "pug") {
+            // Create new HTMLWebpackPlugin with options
+            return new HTML_WEBPACK_PLUGIN({
+                filename: `pages/${name}.html`,
+                template: `${templateDir}/${name}.${extension}`,
+            });
+        }
+    });
 }
 
 const templates = generateHtmlPlugins("./src/pages/");
@@ -104,11 +106,19 @@ const CONFIG = {
  * Object
  */
 
-const LOADERS = [
-    {
+const LOADERS = [{
         test: TEST.script,
         include: PATH.resolve(__dirname, 'src'),
-        use: ["babel-loader", "ts-loader"],
+        // use: [
+        //     {
+        //         loader: "babel-loader",
+        //         exclude: /node_modules/,
+        //         options: {
+        //             cacheDirectory: true
+        //         }
+        //     }
+        // , 
+        use: ['ts-loader'],
     },
 
     {
@@ -162,7 +172,7 @@ const LOADERS = [
 
 const PLUGINS = [
 
-    new MINI_CSS_EXTRACT_PLUGIN( {
+    new MINI_CSS_EXTRACT_PLUGIN({
         // Options similar to the same options in webpackOptions.output
         // all options are optional
         filename: 'static/styles/[name].css',
