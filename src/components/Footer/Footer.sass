@@ -1,0 +1,125 @@
+.site-footer
+	background-color: lighten($black, 5%)
+	padding: 3rem 0
+	margin-top: 4rem
+
+	.title
+		font-size: unit(36)
+		font-weight: 700
+		
+		a
+			text-decoration: none
+			color: $white
+
+			&:hover
+				text-decoration: underline
+
+			span 
+				color: lighten($blue, 20%)
+
+.footer
+	&-blocks
+		flex-wrap: wrap /// responsive design
+		
+
+	&-block
+		// flex: 0 0 30%
+
+		&.left-block
+			flex: 0 0 30%
+
+			input
+				display: block
+				width: 100%
+				border: none
+				border-radius: 4px
+				height: 41px
+				font-size: 16px
+				background-color: $white
+				padding: .25rem .5rem
+				color: $text
+
+				&::placeholder
+					color: $gray-50
+
+
+			.social-links //ul
+				list-style-type: none
+				margin-top: 1.5rem
+
+				li
+					a
+						height: 36px
+						width: 36px
+						margin-right: .5rem
+						border-radius: 50%
+						//background: linear-gradient(9deg, #3a3d44, transparent)
+						background-color: $white
+
+						span 
+							line-height: 0
+
+							svg
+								height: 18px
+								width: 18px
+								color: $text
+								
+						
+		&.middle-block
+			flex: 0 0 40%
+			.important-link
+				.list //ul
+					list-style-type: none
+					margin-top: -9px
+
+					a
+						font-size: 14px
+						color: #fff
+						display: block
+						text-decoration: none
+						padding: .25rem 1rem
+
+						&:hover
+							
+							text-decoration: underline
+
+		&.last-block
+			flex: 0 0 20%
+			.newsletter-heading
+				font-size: 21px
+				color: $white
+
+				span 
+
+				svg
+					width: 21px
+					height: 21px
+
+			.newsletter-form
+				input 
+					border: none
+					background-color: $white
+					padding: .5rem 1rem
+					width: 100%
+					border-radius: 4px
+					font-size: 15px
+
+					&::placeholder
+						color: $gray-50
+
+				button
+					width: 100%
+					display: block
+					margin: .25rem 0 1rem
+					border-radius: 4px
+					background-color: var(--blue)
+					color: var(--white)
+					padding: .25rem 1rem
+					
+					font-size: 15px
+					cursor: pointer
+
+				p
+					font-size: 12px
+					margin: 1rem 0
+					color: var(--white)

@@ -1,5 +1,15 @@
 extends ../components/Layout/Layout.pug
 
+block styles
+    style. 
+        body {
+            background-color: #fff !important;
+        }
+
 block content
-    include ../components/Nav/Nav.pug
-    include ../components/Status/StatusSingle/StatusSingle.pug
+    div(aria-label='nav and staus bar')
+        include ../components/Nav/Nav.pug
+        include ../components/Status/StatusSingle/StatusSingle.pug
+
+    div
+        include ../components/Single/Single.pug

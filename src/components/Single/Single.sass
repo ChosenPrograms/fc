@@ -1,0 +1,118 @@
+.single-post
+
+	&-container
+		max-width: unit(600)
+		margin: 1rem auto
+
+	&-details
+		.category
+			margin-top: 3rem
+
+			a
+				text-decoration: none
+				font-weight: 700
+				color: $blue
+				font-size: 13px
+
+				&:hover 
+					text-decoration: underline
+
+			.space
+				margin: 0 .5rem
+
+				span::after
+					content: ' \20\00BB'
+
+		.title
+			font-size: unit(35)
+			color: lighten($text, 5%)
+			font-weight: 700
+			line-height: normal
+			margin: .5rem 0 2rem -2px
+
+.single-thumbnail
+	.img
+		margin: 1rem auto 2.5rem
+		max-width: unit(1050)
+		max-height: 300px
+		overflow: hidden
+
+		img
+			width: 100%
+
+	////////////////////////////////////////////////
+//////////////////////////// 
+	////////////////////////////////////////////////
+
+.single-post
+
+	.methods
+
+		.step-headline
+			display: table
+			background-color: $white
+			// border: 1px solid $gray-10
+			border-radius: .25rem .25rem 0 0
+			margin: 1rem 0 0
+			position: relative
+			overflow: hidden
+			width: 100%
+
+			.alt
+				font-size: 12px
+				background-color: lighten($blue, 10%)
+				color: $white
+				text-align: center
+				padding: 0 unit(6)
+				align-self: stretch
+				position: absolute
+				left: 0
+				height: 60px
+				
+
+
+				.alt-no
+					font-size: unit(21)
+					display: block
+
+			.headtext
+				display: table-cell
+				vertical-align: middle
+				font-size: 20px
+				height: 58px
+				line-height: 1.125em
+				padding-left: 70px
+
+		.method-steps
+			.method-step
+				background-color: $white
+				margin-bottom: 1rem
+				border: 1px solid #eee
+				width: 100%
+				border-radius: .25rem
+				overflow: hidden
+
+				&:first-child
+					border-radius: 0 0 .25rem .25rem
+
+				.img
+					margin-bottom: 1rem
+
+					img
+						width: 100%
+
+				.details
+					padding: .5rem 1.5rem
+
+					.method-step-no
+						font-size: 44px
+						margin-right: 16px
+						font-weight: 700
+						float: left
+						line-height: 1em
+
+					p
+						font-size: 1rem
+						line-height: 1.5
+						margin-bottom: 1rem
+			

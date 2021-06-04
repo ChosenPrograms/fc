@@ -1,7 +1,7 @@
 div(aria-label='new articles')
 	.post-container.main-post-container
 
-		article.article.shadow
+		article.article.border
 			.article-info.user-select-none
 				.info-left.flex
 					a(href="/").author-link
@@ -22,7 +22,7 @@ div(aria-label='new articles')
 					 
 				a(href="/").article-thumbnail
 					img.drag-none(src="https://www.wikihow.com/images/thumb/4/4d/Go-With-the-Flow-Step-6.jpg/aid1124587-v4-728px-Go-With-the-Flow-Step-6.jpg", alt="Friends good")
-		article.article.shadow
+		article.article.border
 			.article-info.flex.user-select-none
 				a(href="/").author-link
 					.article-author-img
@@ -38,7 +38,7 @@ div(aria-label='new articles')
 				.text
 					p.title It's something we can't be stop at this moment right nw
 					p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
-		article.article.shadow
+		article.article.border
 			.article-info.flex.user-select-none
 				a(href="/").author-link
 					.article-author-img
@@ -56,64 +56,52 @@ div(aria-label='new articles')
 					p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :) Try Sirv. It’s an image hosting, management and deliv
 					 
 				a(href="/").article-thumbnail
-					img.drag-none(src="https://www.wikihow.com/images/thumb/9/9b/Cope-with-Being-Bored-Step-13-Version-2.jpg/aid173377-v4-700px-Cope-with-Being-Bored-Step-13-Version-2.jpg", alt="Books are friend")
+					img.drag-none(src=require('../../../static/images/demo/3.jpg'), alt="Books are friend")
 
 		//- include ../RecommendedPost/RecommendedPost.pug
 		
-		.group-articles.shadow
-			article.article
-				.article-info.flex.user-select-none
-					a(href="/").author-link
-						.article-author-img.center
-							img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
-					div.more-info.flex
-						div.authortopics.flex
-							a.author(href="/") Stephanie
-							span.time(aria-label='date time') 3 hours ago
+		article.border.article
+			.article-info.flex.user-select-none
+				a(href="/").author-link
+					.article-author-img.center
+						img.author-img(src="https://organicthemes.com/demo/profile/files/2018/05/profile-pic.jpg", alt="username")
+				div.more-info.flex
+					div.authortopics.flex
+						a.author(href="/") Stephanie
+						span.time(aria-label='date time') 3 hours ago
 
-						a.topics(href="/topics/Nature") WikiMedia
+					a.topics(href="/topics/Nature") WikiMedia
 
-				.article-body
-					.text
-						p.title It's something we can't be stop at this moment right nw
-						p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
-			article.article
-				.article-info.flex.user-select-none
-					a(href="/").author-link
-						.article-author-img.center
-							img.author-img(src="https://cdn.dribbble.com/users/1577045/screenshots/4914645/dribble_pic.png", alt="username")
-					div.more-info.flex
-						div.authortopics.flex
-							a.author(href="/") Imao
-							span.time(aria-label='date time') 1 day ago
+			.article-body
+				.text
+					p.title It's something we can't be stop at this moment right nw
+					p So far no one mentioned a CDN that was built specifically for image delivery, so I’ll start :)
+		article.border.article
+			.article-info.flex.user-select-none
+				a(href="/").author-link
+					.article-author-img.center
+						img.author-img(src="https://cdn.dribbble.com/users/1577045/screenshots/4914645/dribble_pic.png", alt="username")
+				div.more-info.flex
+					div.authortopics.flex
+						a.author(href="/") Imao
+						span.time(aria-label='date time') 1 day ago
 
-						a.topics(href="/topics/Nature") Player
+					a.topics(href="/topics/Nature") Player
 
-				.article-body
-					.text
-						p.title How to play player in windows 10
-						p One mentioned a CDN that was built specifically for image delivery, so I’ll start :)
-			article.article
-				.article-info.flex.user-select-none
-					a(href="/").author-link
-						.article-author-img.center
-							img.author-img(src="https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png", alt="username")
-					div.more-info.flex
-						div.authortopics.flex
-							a.author(href="/") Lio Messi
-							span.time(aria-label='date time') just now
-
-						a.topics(href="/topics/Nature") Only Playing
-
-				.article-body
-					.text
-						a(href='/').title How to play player in windows 10
-						p Just try to play with me
-	
+			.article-body
+				.text
+					p.title How to play player in windows 10
+					p One mentioned a CDN that was built specifically for image delivery, so I’ll start :)
+		
 	.Pagination.flex
-		a(href="/Pages/1").prev.pageBtn <
+		
+		a(href="/Pages/1").prev.pageBtn
+			span
 		- for (let i =1; i < 6; i++)
 			- let pageName = '/Pages/' + i
 			a.pageBtn(href=pageName) #{i}
 
-		a(href="/Pages/43").next.pageBtn >
+		a(href="/Pages/43").next.pageBtn
+			span
+
+		
