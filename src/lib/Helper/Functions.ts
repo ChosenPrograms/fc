@@ -1,11 +1,11 @@
-type isCheck = ( arg: any ) => boolean;
+type TypeCheck = (arg: any) => boolean;
 
-const isString: isCheck = ( arg: any ) => typeof arg === 'string';
-const isNumber: isCheck = ( arg: any ) => typeof arg === 'number';
-const isArray: isCheck  = ( arg: any ) => arg.constructor === Array;
-const isObject: isCheck = ( arg: any ) => arg.constructor.toString.call(arg) === '[object Object]';
-const isFunction: isCheck = (arg: any ) => typeof arg === 'function';
-const isUndefined: isCheck = ( arg: any ) => typeof arg === 'undefined'
+const isString: TypeCheck = (arg: any): arg is string => typeof arg === 'string';
+const isNumber: TypeCheck = (arg: any): arg is number => typeof arg === 'number';
+const isArray: TypeCheck = (arg: any): arg is any[] => Array.isArray(arg);
+const isObject: TypeCheck = (arg: any): arg is Record<string, any> => typeof arg === 'object' && !isArray(arg);
+const isFunction: TypeCheck = (arg: any): arg is Function => typeof arg === 'function';
+const isUndefined: TypeCheck = (arg: any): arg is undefined => typeof arg === 'undefined';
 
 export {
     isString,
